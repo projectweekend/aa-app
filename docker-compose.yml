@@ -1,0 +1,11 @@
+version:     "3.5"
+services:
+  nginx:
+    image:   nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - "./nginx.conf:/etc/nginx/nginx.conf"
+      - "./aa-app:/var/www"
+  server:
+    image:   projectweekend/aa
