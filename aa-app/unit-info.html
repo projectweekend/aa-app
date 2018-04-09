@@ -1,14 +1,59 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Welcome to AA Utils</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <script src="/js/vue.min.js"></script>
+  <script src="/js/vue-resource.min.js"></script>
 </head>
+
 <body>
-  <div id="app">
-    UNIT INFO
+  <div id="app" class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <table v-if="unitInfo" class="table table-sm table-striped table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">IPC</th>
+              <th scope="col">Atk</th>
+              <th scope="col">Def</th>
+              <th scope="col">Mv</th>
+              <th scope="col">Bonus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in unitInfo.land">
+              <th>{{ item.name }}</th>
+              <td>{{ item.cost }}</td>
+              <td>{{ item.attack }}</td>
+              <td>{{ item.defense }}</td>
+              <td>{{ item.movement }}</td>
+              <td>{{ item.bonus }}</td>
+            </tr>
+            <tr v-for="item in unitInfo.air">
+              <th>{{ item.name }}</th>
+              <td>{{ item.cost }}</td>
+              <td>{{ item.attack }}</td>
+              <td>{{ item.defense }}</td>
+              <td>{{ item.movement }}</td>
+              <td>{{ item.bonus }}</td>
+            </tr>
+            <tr v-for="item in unitInfo.sea">
+              <th>{{ item.name }}</th>
+              <td>{{ item.cost }}</td>
+              <td>{{ item.attack }}</td>
+              <td>{{ item.defense }}</td>
+              <td>{{ item.movement }}</td>
+              <td>{{ item.bonus }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
   <script src="/js/app.js"></script>
 </body>
+
 </html>
