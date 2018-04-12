@@ -1,1 +1,3 @@
 Pipfile*
+*.out
+.terraform/
