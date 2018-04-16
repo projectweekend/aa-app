@@ -3,7 +3,7 @@ Vue.use('')
 var app = new Vue({
   el: '#app',
   data: {
-    apiRoot: 'http://127.0.0.1:8000',
+    apiRoot: 'https://aa-api.exitcodezero.io',
     unitTypes: ['land', 'air', 'sea'],
     unitInfo: null,
     battle: {
