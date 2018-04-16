@@ -7,7 +7,3 @@ services:
     volumes:
       - "./nginx.conf:/etc/nginx/nginx.conf"
       - "./aa-app:/var/www"
-  server:
-    image:   projectweekend/aa
-    ports:
-      - "8000:8000"
