@@ -10,7 +10,7 @@ var app = new Vue({
       attacker: {},
       defender: {}
     },
-    result: {}
+    result: null
   },
   mounted: function () {
     this.getUnitInfo();
@@ -21,12 +21,12 @@ var app = new Vue({
       // console.log(Vue);
       this.$http.get(url).then(res => {
         this.unitInfo = res.body;
-        this.initEmptyBattle();
+        this.emptyBattle();
       }, err => {
         console.log(err);
       })
     },
-    initEmptyBattle: function () {
+    emptyBattle: function () {
       for (let t of this.unitTypes) {
         for (let unit of this.unitInfo[t]) {
           this.battle.attacker[unit.name] = 0;
@@ -34,9 +34,12 @@ var app = new Vue({
         }
       }
     },
+    emptyResult: function () {
+      this.result = null;
+    },
     simulateBattle: function () {
+      this.emptyResult();
       var url = this.apiRoot;
-      console.log(this.battle);
       this.$http.post(url, this.battle).then(res => {
         this.result = res.body;
       }, err => {
