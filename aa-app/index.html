@@ -12,12 +12,13 @@
   <div id="app" class="container-fluid">
     <div class="row">
       <div class="col-sm-12">
+        <button v-on:click="simulateBattle" type="button" class="btn btn-success btn-block">Simulate</button>
         <table v-if="unitInfo" class="table table-sm table-striped table-bordered">
           <thead class="thead-dark">
             <tr>
-              <th scope="col"></th>
-              <th scope="col">Attacking</th>
-              <th scope="col">Defending</th>
+              <th scope="col"><span v-if="result">Draw: {{Math.round(result.draw * 100) / 100}}%</span></th>
+              <th scope="col">Attacking<span v-if="result">: {{Math.round(result.attacker * 100) / 100}}%</span></th>
+              <th scope="col">Defending<span v-if="result">: {{Math.round(result.defender * 100) / 100}}%</span></th>
             </tr>
           </thead>
           <tbody>
@@ -38,7 +39,6 @@
             </tr>
           </tbody>
         </table>
-        <button v-on:click="simulateBattle" type="button" class="btn btn-success">Simulate</button>
       </div>
     </div>
   </div>
