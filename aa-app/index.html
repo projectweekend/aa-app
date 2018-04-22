@@ -22,17 +22,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in unitInfo.land">
+            <tr v-for="item in unitInfo.Land">
               <th>{{ item.name }}</th>
               <td><input v-model.number="battle.attacker[item.name]" type="number"></td>
               <td><input v-model.number="battle.defender[item.name]" type="number"></td>
             </tr>
-            <tr v-for="item in unitInfo.air">
+            <tr v-for="item in unitInfo.Air">
               <th>{{ item.name }}</th>
               <td><input v-model.number="battle.attacker[item.name]" type="number"></td>
               <td><input v-model.number="battle.defender[item.name]" type="number"></td>
             </tr>
-            <tr v-for="item in unitInfo.sea">
+            <tr v-for="item in unitInfo.Sea">
               <th>{{ item.name }}</th>
               <td><input v-model.number="battle.attacker[item.name]" type="number"></td>
               <td><input v-model.number="battle.defender[item.name]" type="number"></td>

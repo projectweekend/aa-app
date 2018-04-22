@@ -37,20 +37,20 @@ var app = new Vue({
     },
     RefreshLandBattleUnits: function () {
       this.landBattleUnits = [];
-      for (var i = 0; i < this.unitInfo.land.length; i++) {
-        this.landBattleUnits.push(this.unitInfo.land[i]);
+      for (var i = 0; i < this.unitInfo.Land.length; i++) {
+        this.landBattleUnits.push(this.unitInfo.Land[i]);
       }
-      for (var i = 0; i < this.unitInfo.air.length; i++) {
-        this.landBattleUnits.push(this.unitInfo.air[i]);
+      for (var i = 0; i < this.unitInfo.Air.length; i++) {
+        this.landBattleUnits.push(this.unitInfo.Air[i]);
       }
     },
     RefreshNavalBattleUnits: function () {
       this.navalBattleUnits = [];
-      for (var i = 0; i < this.unitInfo.air.length; i++) {
-        this.navalBattleUnits.push(this.unitInfo.air[i]);
+      for (var i = 0; i < this.unitInfo.Air.length; i++) {
+        this.navalBattleUnits.push(this.unitInfo.Air[i]);
       }
-      for (var i = 0; i < this.unitInfo.sea.length; i++) {
-        this.navalBattleUnits.push(this.unitInfo.sea[i]);
+      for (var i = 0; i < this.unitInfo.Sea.length; i++) {
+        this.navalBattleUnits.push(this.unitInfo.Sea[i]);
       }
     },
     EmptyBattle: function () {
