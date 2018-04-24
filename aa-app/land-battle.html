@@ -103,10 +103,10 @@
       <div class="col-sm-6">
         <button v-on:click="SimulateLandBattle" type="button" class="btn btn-sm btn-block btn-success">Simulate</button>
         <br>
-        <ul v-if="landBattleResult" class="list-group">
-          <li class="list-group-item"><h3>Attacker: {{ attackerWinPercentage }}%</h3></li>
-          <li class="list-group-item"><h3>Defender: {{ defenderWinPercentage }}%</h3></li>
-          <li class="list-group-item"><h3>Draw: {{ drawPercentage }}%</h3></li>
+        <ul class="list-group">
+          <li class="list-group-item"><h3>Attacker: <span v-if="landBattleResult">{{ attackerWinPercentage }}%</span></h3></li>
+          <li class="list-group-item"><h3>Defender: <span v-if="landBattleResult">{{ defenderWinPercentage }}%</span></h3></li>
+          <li class="list-group-item"><h3>Draw: <span v-if="landBattleResult">{{ drawPercentage }}%</span></h3></li>
         </ul>
       </div>
   </div>
