@@ -13,29 +13,101 @@
   <div id="app" class="container-fluid">
     <div class="row">
       <div class="col-sm-6">
-        <form>
-          <div v-for="item in landBattleUnits" class="form-group row">
-            <label class="col col-form-label">{{ item.name }}</label>
+        <form v-if="landBattle">
+          <div class="form-group row">
+            <legend class="col">Unit</legend>
+            <legend class="col">Attacker</legend>
+            <legend class="col">Defender</legend>
+          </div>
+          <div class="form-group row">
+            <label class="col col-form-label">Infantry</label>
             <div class="col">
-              <input class="form-control form-control-sm" type="number">
+              <input v-model.number="landBattle.attacker['Infantry']" class="form-control form-control-sm" type="number">
             </div>
             <div class="col">
-              <input class="form-control form-control-sm" type="number">
+              <input v-model.number="landBattle.defender['Infantry']" class="form-control form-control-sm" type="number">
             </div>
           </div>
           <div class="form-group row">
+            <label class="col col-form-label">Mechanized Infantry</label>
             <div class="col">
-              <button v-on:click="toggleAmphibiousAssault" class="btn btn-sm btn-block btn-outline-secondary" type="button" data-toggle="button" aria-pressed="false">Amphibious Assault</button>
+              <input v-model.number="landBattle.attacker['Mechanized Infantry']" class="form-control form-control-sm" type="number">
+            </div>
+            <div class="col">
+              <input v-model.number="landBattle.defender['Mechanized Infantry']" class="form-control form-control-sm" type="number">
             </div>
           </div>
-          <div v-if="battle.amphibiousAssault" class="form-group row">
-            Amphibious Assault
+          <div class="form-group row">
+            <label class="col col-form-label">Artillery</label>
+            <div class="col">
+              <input v-model.number="landBattle.attacker['Artillery']" class="form-control form-control-sm" type="number">
+            </div>
+            <div class="col">
+              <input v-model.number="landBattle.defender['Artillery']" class="form-control form-control-sm" type="number">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col col-form-label">Tank</label>
+            <div class="col">
+              <input v-model.number="landBattle.attacker['Tank']" class="form-control form-control-sm" type="number">
+            </div>
+            <div class="col">
+              <input v-model.number="landBattle.defender['Tank']" class="form-control form-control-sm" type="number">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col col-form-label">Fighter</label>
+            <div class="col">
+              <input v-model.number="landBattle.attacker['Fighter']" class="form-control form-control-sm" type="number">
+            </div>
+            <div class="col">
+              <input v-model.number="landBattle.defender['Fighter']" class="form-control form-control-sm" type="number">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col col-form-label">Tactical Bomber</label>
+            <div class="col">
+              <input v-model.number="landBattle.attacker['Tactical Bomber']" class="form-control form-control-sm" type="number">
+            </div>
+            <div class="col">
+              <input v-model.number="landBattle.defender['Tactical Bomber']" class="form-control form-control-sm" type="number">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col col-form-label">Strategic Bomber</label>
+            <div class="col">
+              <input v-model.number="landBattle.attacker['Strategic Bomber']" class="form-control form-control-sm" type="number">
+            </div>
+            <div class="col">
+              <input v-model.number="landBattle.defender['Strategic Bomber']" class="form-control form-control-sm" type="number">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col col-form-label">Battleship</label>
+            <div class="col">
+              <input v-model.number="landBattle.attacker['Battleship']" class="form-control form-control-sm" type="number">
+            </div>
+            <div class="col">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col col-form-label">Cruiser</label>
+            <div class="col">
+              <input v-model.number="landBattle.attacker['Cruiser']" class="form-control form-control-sm" type="number">
+            </div>
+            <div class="col">
+            </div>
           </div>
         </form>
       </div>
       <div class="col-sm-6">
-        <button v-on:click="simulateBattle" type="button" class="btn btn-sm btn-block btn-success">Simulate</button>
-        <!-- <button v-on:click="resetBattle" type="button" class="btn btn-danger btn-block">Reset</button> -->
+        <button v-on:click="SimulateLandBattle" type="button" class="btn btn-sm btn-block btn-success">Simulate</button>
+        <br>
+        <ul v-if="landBattleResult" class="list-group">
+          <li class="list-group-item"><h3>Attacker: {{ attackerWinPercentage }}%</h3></li>
+          <li class="list-group-item"><h3>Defender: {{ defenderWinPercentage }}%</h3></li>
+          <li class="list-group-item"><h3>Draw: {{ drawPercentage }}%</h3></li>
+        </ul>
       </div>
   </div>
   <script src="/js/jquery-3.0.0.min.js"></script>
