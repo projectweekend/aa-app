@@ -13,7 +13,7 @@
   <div id="app" class="container-fluid">
     <div class="row">
       <div class="col-sm-6">
-        <form v-if="landBattle">
+        <form v-cloak v-if="landBattle">
           <div class="form-group row">
             <legend class="col">Unit</legend>
             <legend class="col">Attacker</legend>
@@ -104,9 +104,9 @@
         <button v-on:click="SimulateLandBattle" type="button" class="btn btn-sm btn-block btn-success">Simulate</button>
         <br>
         <ul class="list-group">
-          <li class="list-group-item"><h3>Attacker: <span v-if="landBattleResult">{{ attackerWinPercentage }}%</span></h3></li>
-          <li class="list-group-item"><h3>Defender: <span v-if="landBattleResult">{{ defenderWinPercentage }}%</span></h3></li>
-          <li class="list-group-item"><h3>Draw: <span v-if="landBattleResult">{{ drawPercentage }}%</span></h3></li>
+          <li class="list-group-item"><h3>Attacker: <span v-cloak v-if="landBattleResult">{{ attackerWinPercentage }}%</span></h3></li>
+          <li class="list-group-item"><h3>Defender: <span v-cloak v-if="landBattleResult">{{ defenderWinPercentage }}%</span></h3></li>
+          <li class="list-group-item"><h3>Draw: <span v-cloak v-if="landBattleResult">{{ drawPercentage }}%</span></h3></li>
         </ul>
       </div>
   </div>
