@@ -12,7 +12,7 @@
   <h1>Land Battle</h1>
   <div id="app" class="container-fluid">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-5">
         <form v-cloak v-if="landBattle">
           <div class="form-group row">
             <legend class="col">Unit</legend>
@@ -29,7 +29,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col col-form-label">Mechanized Infantry</label>
+            <label class="col col-form-label">Mec. Infantry</label>
             <div class="col">
               <input v-model.number="landBattle.attacker['Mechanized Infantry']" class="form-control form-control-sm" type="number">
             </div>
@@ -65,7 +65,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col col-form-label">Tactical Bomber</label>
+            <label class="col col-form-label">Tac. Bomber</label>
             <div class="col">
               <input v-model.number="landBattle.attacker['Tactical Bomber']" class="form-control form-control-sm" type="number">
             </div>
@@ -74,7 +74,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col col-form-label">Strategic Bomber</label>
+            <label class="col col-form-label">Str. Bomber</label>
             <div class="col">
               <input v-model.number="landBattle.attacker['Strategic Bomber']" class="form-control form-control-sm" type="number">
             </div>
@@ -100,14 +100,39 @@
           </div>
         </form>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-7">
         <button v-on:click="SimulateLandBattle" type="button" class="btn btn-sm btn-block btn-success">Simulate</button>
         <br>
-        <ul class="list-group">
-          <li class="list-group-item"><h3>Attacker: <span v-cloak v-if="landBattleResult">{{ attackerWinPercentage }}%</span></h3></li>
-          <li class="list-group-item"><h3>Defender: <span v-cloak v-if="landBattleResult">{{ defenderWinPercentage }}%</span></h3></li>
-          <li class="list-group-item"><h3>Draw: <span v-cloak v-if="landBattleResult">{{ drawPercentage }}%</span></h3></li>
-        </ul>
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th></th>
+              <th>Results</th>
+              <th>Avg Units Remaining</th>
+              <th>Avg IPCs Lost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Attacker</th>
+              <td><span v-cloak v-if="landBattleResult">{{ attackerWinPercentage }}%</span></td>
+              <td><span v-cloak v-if="landBattleResult">{{ landBattleResult.stats.attackers_remaining }}</span></td>
+              <td><span v-cloak v-if="landBattleResult">{{ landBattleResult.stats.attackers_ipc_lost }}</span></td>
+            </tr>
+            <tr>
+              <th>Defender</th>
+              <td><span v-cloak v-if="landBattleResult">{{ defenderWinPercentage }}%</span></td>
+              <td><span v-cloak v-if="landBattleResult">{{ landBattleResult.stats.defenders_remaining }}</span></td>
+              <td><span v-cloak v-if="landBattleResult">{{ landBattleResult.stats.defenders_ipc_lost }}</span></td>
+            </tr>
+            <tr>
+              <th>Draw</th>
+              <td><span v-cloak v-if="landBattleResult">{{ drawPercentage }}%</span></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
   </div>
   <script src="/js/jquery-3.0.0.min.js"></script>
